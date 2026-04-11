@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="NAME">NAME</label><br>
+            <input type="text"id="name"placeholder="Enter NAME"><br>
+            <label for="SECTION">SECTION</label><br>
+            <input type="text"id="section"placeholder="Enter Section"><br>
+        </fieldset>
+        <fieldset>
+             <legend>Marks Information</legend>
+             <label for="WEB">WEB  MARKS</label><br>
+             <input type="text"id="web"placeholder="Enter WEB  MARKS"><br>  
+
+             <label for="MARKETING">MARKETING MARKS</label><br>
+             <input type="text"id="marketing"placeholder="Enter MARKETING MARKS"><br>  
+
+             <label for="HCI">HCI MARKS</label><br>
+             <input type="text"id="hci"placeholder="Enter HCI MARKS"><br>  
+
+             <label for="CA">CA MARKS</label><br>
+             <input type="text"id="ca"placeholder="Enter CA MARKS"><br>  
+
+             <label for="ADBMS">ADBMS MARKS</label><br>
+             <input type="text"id="adbms"placeholder="Enter ADBMS MARKS"><br>  
+
+             <label for="OS">OS MARKS</label><br>
+             <input type="text"id="os"placeholder="Enter OS MARKS"><br>  
+
+             <label for="total">TOTAL MARKS</label><br>
+             <input type="text"id="total"placeholder="Enter Total MARKS"><br>  
+
+             <input type="button"value="CALCULATE RESULT" onclick="calculate()"><br> 
+             
+             
+        </fieldset>
+        <br>
+    </form>
+        <input type="button" value="Show RESULT" onclick="showResult()"><br> 
+        <table id="table" border="1">
+            <tr>
+                <th>Name</th>
+                <td id="nameval"></td>
+            </tr>
+            <tr>
+            <th>Section</th>
+            <td id="sectionval"></td>
+            </tr>
+            <tr>
+            <th>WEB</th>
+            <td id="webval"></td>
+            </tr>
+            <tr>
+            <th>Marketing</th>
+            <td id="marketingval"></td>
+            </tr>
+            <tr>
+            <th>HCI</th>
+            <td id="hcival"></td>
+            </tr>
+            <tr>
+            <th>CA</th>
+            <td id="caval"></td>
+            </tr>
+            <tr>
+            <th>ADBMS</th>
+            <td id="adbmsval"></td>
+            </tr>
+            <tr>
+            <th>OS</th>
+            <td id="osval"></td>
+            </tr>
+            <tr>
+            <th>Total Marks</th>
+            <td id="totalmarksval"></td>
+            </tr>
+            <tr>
+            <th>Obtained Marks</th>
+            <td id="obtainedval"></td>
+            </tr>
+            <tr>
+            <th>Percentage</th>
+            <td id="percentageval"></td>
+            </tr>
+            <tr id="row"></tr>
+        </table>
+    <script>
+        let data={};
+        function calculate()
+        {
+            //name
+         var name=document.getElementById("name").value;
+         if(name=="")
+         {
+            alert("plz enter name")
+            return;
+         }
+         else if(!isNaN(name))
+         {
+            alert("plz enter only text ")
+            return;
+         
+         }
+         // section
+         var section=document.getElementById("section").value;
+         if(section=="")
+         {
+            alert("plz enter section")
+            return;
+         }
+         else if(!isNaN(section))
+         {
+            alert("plz enter only text ")
+            return;
+         
+        }
+        //web
+         let web=document.getElementById("web").value;
+         if(web=="")
+         {
+            alert("plz enter web marks")
+            return;
+         }
+         else if(isNaN(web))
+         {
+            alert("plz enter number only ")
+            return;
+         
+        }
+        //marketing
+        let marketing=document.getElementById("marketing").value;
+         if(marketing=="")
+         {
+            alert("plz enter marketing marks")
+            return;
+         }
+         else if(isNaN(marketing))
+         {
+            alert("plz enter only number ")
+            return;
+        }
+        //hci
+         let hci=document.getElementById("hci").value;
+         if(hci=="")
+         {
+            alert("plz enter hci marks")
+            return;
+         }
+         else if(isNaN(hci))
+         {
+            alert("plz enter only number ")
+            return;
+         
+        }
+         //ca
+         let ca=document.getElementById("ca").value;
+         if(ca=="")
+         {
+            alert("plz enter ca marks")
+            return;
+         }
+         else if(isNaN(ca))
+         {
+            alert("plz enter only number ")
+            return;
+         
+        }
+        //adms
+         let adbms=document.getElementById("adbms").value;
+         if(adbms=="")
+         {
+            alert("plz enter adbms marks")
+            return;
+         }
+         else if(isNaN(adbms))
+         {
+            alert("plz enter only number ")
+            return;
+         
+        }
+         // os
+         let os=document.getElementById("os").value;
+         if(os=="")
+         {
+            alert("plz enter os marks")
+            return;
+         }
+         else if(isNaN(os))
+         {
+            alert("plz enter only number ")
+            return;         
+        }
+        let geted=Number(web)+Number(marketing)+Number(hci)
+        +Number(ca)+Number(adbms)+Number(os);
+       let total=document.getElementById("total").value;
+         if(total=="")
+         {
+            alert("plz enter total marks")
+            return;
+         }
+         else if(isNaN(total)||total<geted)
+         {
+            alert("plz enter valid total number ")
+            return;         
+        }
+        let percentage=(geted/total)*100;
+        alert("calculated press show to see reult");
+       data=
+       {
+        name:name,
+        section:section,
+        web:web,
+        marketing:marketing,
+        hci:hci,
+        ca:ca,
+        adbms:adbms,
+        os:os,
+        total:total,
+        obtain:geted,
+        percentage:percentage.toFixed(2)
+        
+       };
+    }
+    function showResult()
+    {
+        if(!data.name)
+    {
+        alert("first calculate");
+        return;
+
+    }
+    document.getElementById("nameval").innerText=data.name;
+    document.getElementById("sectionval").innerText=data.section;
+    document.getElementById("webval").innerText=data.web;
+    document.getElementById("marketingval").innerText=data.marketing;
+    document.getElementById("hcival").innerText=data.hci;
+    document.getElementById("caval").innerText=data.ca;
+    document.getElementById("adbmsval").innerText=data.adbms;
+    document.getElementById("osval").innerText=data.os;
+    document.getElementById("totalmarksval").innerText=data.total;
+    document.getElementById("obtainedval").innerText=data.obtain;
+    document.getElementById("percentageval").innerText=data.percentage;
+    document.getElementById("table").style.display="table";
+    }
+    </script>
+</body>
+</html>
