@@ -92,7 +92,7 @@
             <tr id="row"></tr>
         </table>
     <script>
-        let data={};
+        let store={};
         function calculate()
         {
             //name
@@ -212,7 +212,7 @@
         }
         let percentage=(geted/total)*100;
         alert("calculated press show to see reult");
-       data=
+       store=
        {
         name:name,
         section:section,
@@ -230,23 +230,23 @@
     }
     function showResult()
     {
-        if(!data.name)
+        if(!store.name)
     {
         alert("first calculate");
         return;
 
     }
-    document.getElementById("nameval").innerText=data.name;
-    document.getElementById("sectionval").innerText=data.section;
-    document.getElementById("webval").innerText=data.web;
-    document.getElementById("marketingval").innerText=data.marketing;
-    document.getElementById("hcival").innerText=data.hci;
-    document.getElementById("caval").innerText=data.ca;
-    document.getElementById("adbmsval").innerText=data.adbms;
-    document.getElementById("osval").innerText=data.os;
-    document.getElementById("totalmarksval").innerText=data.total;
-    document.getElementById("obtainedval").innerText=data.obtain;
-    document.getElementById("percentageval").innerText=data.percentage;
+    document.getElementById("nameval").innerText=store.name;
+    document.getElementById("sectionval").innerText=store.section;
+    document.getElementById("webval").innerText=store.web;
+    document.getElementById("marketingval").innerText=store.marketing;
+    document.getElementById("hcival").innerText=store.hci;
+    document.getElementById("caval").innerText=store.ca;
+    document.getElementById("adbmsval").innerText=store.adbms;
+    document.getElementById("osval").innerText=store.os;
+    document.getElementById("totalmarksval").innerText=store.total;
+    document.getElementById("obtainedval").innerText=store.obtain;
+    document.getElementById("percentageval").innerText=store.percentage;
     document.getElementById("table").style.display="table";
     }
     </script>

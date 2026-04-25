@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h3>Student Management System</h3>
+  <input type="text" id="name"placeholder="Name" >
+  <input type="text" id="age" placeholder="Age">
+  <input type="text" id="course" placeholder="Courses">
+  <input type="button" id="add" value="Add Student"><br><br><br>
+  <input type="text" id="search" placeholder="Search Student"><br><br>
+  <b><label >Total Student:</label></b>
+  <label id="totalstudent"></label><br><br>
+  <table border="solid" id="tables">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th >Course</th>
+        <th colspan="2">Action</th>
+    </tr>
+  </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //function
+    //DOM
+function validation()
+{
+
+}
+//JQuery
+$(document).ready(function()
+{
+$("#add").click(function()
+{
+var name=document.getElementById("name").value;
+if(name=="")
+{
+    alert("enter name")
+    return; 
+}
+else if(!isNaN(name))
+{
+    alert("only alphabet in name")
+    return;
+}
+let age=document.getElementById("age").value;
+if(age=="")
+{
+    alert("enter age");
+    return;
+}
+else if(isNaN(age))
+{
+    alert("enter only digits in age")
+    return;
+}
+var course=$("#course").val();
+if(course=="")
+{
+    alert("enter section")
+    return;
+}
+else if(!isNaN(course))
+{
+    alert("enter alphabet only in course")
+    return;
+}
+
+let data={};
+data={
+    na:name,
+    ag:age,
+    cou:course
+};
+  $("#tables").append(
+    "<tr>"+
+        "<td>" + data.na + "</td>" +
+        "<td>" + data.ag + "</td>" +
+        "<td>" + data.cou + "</td>" +
+        "<td><button>Edit</button></td>" +
+        "<td><button>Delete</button></td>" +
+        "</tr>"
+    )
+
+    var total=$("#tables tr").length-1;
+    $("#totalstudent").text(total);
+
+
+})
+})
+</script>
+</body>
+</html>
